@@ -37,84 +37,121 @@ public class GameServiceImpl implements GameService{
 
     @Override
     public int isWin() {
-        for (Chess chess : game.board.chessList)
-            if (chess.isDen())
-                return chess.getPlayer();
+        for (Chess[] chessLine : game.board.getChessBoard())
+            for (Chess chess : chessLine)
+                if (chess != null)
+                    if (chess.inDen())
+                        return chess.getPlayer();
         return -1;
     }
 
     @Override
     public boolean isValuable(Step step) {
         Board board = game.getBoard();
+        int FX = step.getFX();
+        int FY = step.getFY();
+        int TX = step.getTX();
+        int TY = step.getTY();
+        int currentPlayer = step.getCurrentPlayer();
+        Chess[][] chessBoard = board.getChessBoard();
+        ChessN chessN = board.getChessBoard()[FX][FY].getChessN();
         // 移动必须在棋盘内
-        if (step.getX() >= 0 && step.getX() <= 9 && step.getY() >= 0 && step.getY() <= 7) return false;
+        if (TX >= 0 && TX <= 9 && TY >= 0 && TY <= 7) return false;
         // 移动到空位可以
-        if (board.getChessBoard()[step.getX()][step.getY()] == null) return true;
+        if (chessBoard[TX][TY] == null) return true;
         // 除了鼠之外，所有棋子都不能下水
-        if (step.getChess().getChessN() != Mouse)
-            if (board.getBoard(step.getX(),step.getY()) == BoardN.River) return false;
+        if (chessN != Mouse)
+            if (board.getBoard(TX,TY) == BoardN.River) return false;
         // 鼠在水中无法吃象
-        if (step.getChess().getChessN() == Mouse && board.getBoard(step.getChess().getX(),step.getChess().getY()) == BoardN.River)
-            if (board.getChessBoard()[step.getX()][step.getY()].getChessN() == ChessN.Elephant) return false;
+        if (chessN == Mouse && board.getBoard(FX,FY) == BoardN.River)
+            if (chessBoard[TX][TY].getChessN() == ChessN.Elephant) return false;
         // 狮子和老虎可以跳湖
-        if (step.getChess().getChessN() == ChessN.Lion || step.getChess().getChessN() == ChessN.Tiger)
-            if (board.getBoard(step.getChess().getX(),step.getChess().getY()) == BoardN.Road){
-                if (step.getX() != step.getChess().getX() && step.getY() != step.getChess().getY())
+        if (chessN == ChessN.Lion || chessN == ChessN.Tiger)
+            if (board.getBoard(FX,FY) == BoardN.Road){
+                if (TX != FX && TY != FY)
                     return false;
-                if (step.getX() != step.getChess().getX()){
-                    int min = Math.min(step.getX(),step.getChess().getX());
-                    int max = Math.max(step.getX(),step.getChess().getX());
+                if (TX != FX){
+                    int min = Math.min(TX,FX);
+                    int max = Math.max(TX,FX);
                     for (int i = min+1; i < max; i++)
-                        if (board.getBoard(i,step.getY()) != BoardN.River)
+                        if (board.getBoard(i,TY) != BoardN.River)
                             return false;
-                } else if (step.getY() != step.getChess().getY()){
-                    int min = Math.min(step.getY(),step.getChess().getY());
-                    int max = Math.max(step.getY(),step.getChess().getY());
+                } else if (TY != FY){
+                    int min = Math.min(TY,FY);
+                    int max = Math.max(TY,FY);
                     for (int i = min+1; i < max; i++)
-                        if (board.getBoard(step.getX(),i) != BoardN.River)
+                        if (board.getBoard(TX,i) != BoardN.River)
                             return false;
                 }
                 return true;
             }
         // 不能吃自己的棋子
-        if (board.getChessBoard()[step.getX()][step.getY()].getPlayer() == step.getChess().getPlayer())
+        if (chessBoard[TX][TY].getPlayer() == currentPlayer)
             return false;
         // 不能吃比自己大的棋子
-        if (board.getChessBoard()[step.getX()][step.getY()].getChessN().compareTo(step.getChess().getChessN()) > 0) {
+        if (chessBoard[TX][TY].getChessN().compareTo(chessBoard[FX][FY].getChessN()) > 0) {
             // 如果是鼠吃象，则可以
-            if (board.getChessBoard()[step.getX()][step.getY()].getChessN() == ChessN.Elephant && step.getChess().getChessN() == Mouse)
+            if (chessBoard[TX][TY].getChessN() == ChessN.Elephant && chessBoard[FX][FY].getChessN() == Mouse)
                 return true;
             // 如果在陷阱，也可以
-            else if (board.getBoard()[step.getX()][step.getY()] == BoardN.Trap)
+            else if (board.getBoard(TX,TY) == BoardN.Trap)
                 return true;
             else
                 return false;
-        }
-        // 其他情况 TODO
-        return false;
+        } else
+            return true;
     }
 
     @Override
     public int move(Step step) {
         if (isValuable(step)){
-            List<Step> steps = game.getSteps();
-            steps.add(step);
-            game.setSteps(steps);
+            game.getSteps().add(step);
+
             Board board = game.getBoard();
             Chess[][] curBoard = board.getChessBoard();
-            int bX = step.getChess().getX();
-            int bY = step.getChess().getY();
-            int lX = step.getX();
-            int lY = step.getY();
-            if (curBoard[lX][lY] != null){
-                // 应将ChessBoard中改为对List的引用 TODO
+            int FX = step.getFX();
+            int FY = step.getFY();
+            int FPlayer = curBoard[FX][FY].getPlayer();
+            ChessN FChessN = curBoard[FX][FY].getChessN();
+            int TX = step.getTX();
+            int TY = step.getTY();
+            if (curBoard[TX][TY] != null) {
+                board.getDeadChessList().add(new DeadChess(FPlayer,FChessN,game.getSteps().size()-1,FX,FY));
             }
+            curBoard[TX][TY] = curBoard[FX][FY];
+            curBoard[FX][FY] = null;
+            board.setChessBoard(curBoard);
+            game.setBoard(board);
+
+            return 1;
         }
         return -1;
     }
 
     @Override
     public void withdraw() {
-
+        if (game.getSteps().size() == 0) return;
+        // 撤销最后一步
+        Step step = game.getSteps().get(game.getSteps().size() - 1);
+        int FX = step.getFX();
+        int FY = step.getFY();
+        int TX = step.getTX();
+        int TY = step.getTY();
+        Board board = game.getBoard();
+        Chess[][] curBoard = board.getChessBoard();
+        // 反向走
+        curBoard[TX][TY] = curBoard[FX][FY];
+        if (board.getDeadChessList().size() > 0){
+            DeadChess deadChess = board.getDeadChessList().get(board.getDeadChessList().size() - 1);
+            if (deadChess.getTurn() == game.getSteps().size() - 1){
+                curBoard[deadChess.getX()][deadChess.getY()] = new Chess(deadChess.getX(),deadChess.getY(),deadChess.getChessN(),deadChess.getPlayer(),true);
+                board.getDeadChessList().remove(board.getDeadChessList().size() - 1);
+            }
+        } else {
+            curBoard[FX][FY] = null;
+        }
+        board.setChessBoard(curBoard);
+        game.setBoard(board);
+        game.getSteps().remove(game.getSteps().size() - 1);
     }
 }

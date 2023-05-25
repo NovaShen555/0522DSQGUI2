@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Chess {
     // Current position
     private int x,y;
@@ -16,7 +17,7 @@ public class Chess {
     // Chess is alive
     private boolean alive = true;
 
-    public boolean isDen() {
+    public boolean inDen() {
         if (x == 0 && y == 3 && player == 1) return true;
         if (x == 8 && y == 3 && player == 0) return true;
         return false;

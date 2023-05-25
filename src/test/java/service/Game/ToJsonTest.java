@@ -8,7 +8,7 @@ public class ToJsonTest {
     @Test
     public void t() {
         GameService gameService = new GameServiceImpl();
-        gameService.readFromJson(gameService.toJson());
         System.out.println(gameService.toJson());
+        gameService.readFromJson(gameService.toJson());
     }
 }

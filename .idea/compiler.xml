@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="0522DSQGUI" />
+        <module name="0522斗兽棋GUI" />
       </profile>
     </annotationProcessing>
   </component>
