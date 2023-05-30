@@ -47,15 +47,16 @@ public class Board {
         this.chessBoard[1][1] = new Chess(1, 1, ChessN.Cat, 0, true);
         this.chessBoard[2][2] = new Chess(2, 2, ChessN.Wolf, 0, true);
         this.chessBoard[2][4] = new Chess(2, 4, ChessN.Leopard, 0, true);
-        this.chessBoard[2][6] = new Chess(1, 5, ChessN.Mouse, 0, true);
-        this.chessBoard[0][6] = new Chess(1, 5, ChessN.Lion, 0, true);
+        this.chessBoard[2][6] = new Chess(2, 6, ChessN.Mouse, 0, true);
+        this.chessBoard[0][6] = new Chess(0, 6, ChessN.Lion, 0, true);
+        this.chessBoard[1][5] = new Chess(1, 5, ChessN.Dog, 0, true);
         this.chessBoard[6][0] = new Chess(6, 0, ChessN.Mouse, 1, true);
         this.chessBoard[6][2] = new Chess(6, 2, ChessN.Leopard, 1, true);
         this.chessBoard[6][4] = new Chess(6, 4, ChessN.Wolf, 1, true);
         this.chessBoard[6][6] = new Chess(6, 6, ChessN.Elephant, 1, true);
         this.chessBoard[8][6] = new Chess(8, 6, ChessN.Tiger, 1, true);
         this.chessBoard[7][5] = new Chess(7, 5, ChessN.Cat, 1, true);
-        this.chessBoard[8][0] = new Chess(8, 3, ChessN.Lion, 1, true);
+        this.chessBoard[8][0] = new Chess(8, 0, ChessN.Lion, 1, true);
         this.chessBoard[7][1] = new Chess(7, 1, ChessN.Dog, 1, true);
 
     }

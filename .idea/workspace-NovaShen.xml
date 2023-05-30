@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="353f7291-7e03-425c-a07a-31d9d3504b7a" name="变更" comment="GUI技术搜集">
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/novashen/gui/BoardP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/novashen/gui/Button.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/novashen/gui/GuiService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/top/novashen/gui/guiT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/board.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/readf.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/images/red.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/top/novashen/gui/ImageButon.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/top/novashen/gui/ImageButon.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/top/novashen/pojo/Board.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/top/novashen/pojo/Board.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/top/novashen/service/GameServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/top/novashen/service/GameServiceImpl.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="AnnotationType" />
+        <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Q8KtyESXYlG1EeKcmmcfIynfx5" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/10415/OneDrive/外包/0522斗兽棋+GUI/src/main/resources/images&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;项目&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\10415\OneDrive\外包\0522斗兽棋+GUI\src\main\resources\images" />
+    </key>
+  </component>
+  <component name="RunManager" selected="应用程序.guiT">
+    <configuration name="ImageButon" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="top.novashen.gui.ImageButon" />
+      <module name="0522DSQGUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.novashen.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyFrame" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="top.novashen.gui.MyFrame" />
+      <module name="0522DSQGUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.novashen.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="guiT" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="MAIN_CLASS_NAME" value="top.novashen.gui.guiT" />
+      <module name="0522DSQGUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="top.novashen.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ListTest.t" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="0522斗兽棋GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.Game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service.Game" />
+      <option name="MAIN_CLASS_NAME" value="service.Game.ListTest" />
+      <option name="METHOD_NAME" value="t" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ToJsonTest.t" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="0522斗兽棋GUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="service.Game.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="service.Game" />
+      <option name="MAIN_CLASS_NAME" value="service.Game.ToJsonTest" />
+      <option name="METHOD_NAME" value="t" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="应用程序.guiT" />
+        <item itemvalue="应用程序.ImageButon" />
+        <item itemvalue="应用程序.MyFrame" />
+        <item itemvalue="JUnit.ListTest.t" />
+        <item itemvalue="JUnit.ToJsonTest.t" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="默认任务">
+      <changelist id="353f7291-7e03-425c-a07a-31d9d3504b7a" name="变更" comment="" />
+      <created>1684729989587</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1684729989587</updated>
+      <workItem from="1684729991084" duration="6864000" />
+      <workItem from="1684760139529" duration="425000" />
+      <workItem from="1684760584400" duration="458000" />
+      <workItem from="1684761052993" duration="937000" />
+      <workItem from="1684765599204" duration="7812000" />
+      <workItem from="1684905467800" duration="298000" />
+      <workItem from="1684922678554" duration="1107000" />
+      <workItem from="1684934238662" duration="122000" />
+      <workItem from="1685005580307" duration="5316000" />
+      <workItem from="1685013578900" duration="275000" />
+      <workItem from="1685014439788" duration="72000" />
+      <workItem from="1685028041811" duration="75000" />
+      <workItem from="1685028166684" duration="6000" />
+      <workItem from="1685198506981" duration="6696000" />
+      <workItem from="1685267987318" duration="5705000" />
+      <workItem from="1685287046811" duration="3487000" />
+    </task>
+    <task id="LOCAL-00001" summary="后端接口完成，等待测试">
+      <created>1685010810715</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685010810715</updated>
+    </task>
+    <task id="LOCAL-00002" summary="GUI技术搜集">
+      <created>1685204301900</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685204301900</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="后端接口完成，等待测试" />
+    <MESSAGE value="GUI技术搜集" />
+    <option name="LAST_COMMIT_MESSAGE" value="GUI技术搜集" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

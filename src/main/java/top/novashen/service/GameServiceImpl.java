@@ -2,6 +2,7 @@ package top.novashen.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Data;
 import top.novashen.pojo.*;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 import static top.novashen.pojo.ChessN.Mouse;
 
 public class GameServiceImpl implements GameService{
-    private Game game;
+    public Game game;
     private final ObjectMapper objectMapper = new ObjectMapper();
     public GameServiceImpl() {
         game = new Game();
@@ -52,19 +53,22 @@ public class GameServiceImpl implements GameService{
         int FY = step.getFY();
         int TX = step.getTX();
         int TY = step.getTY();
+//        System.out.println(FX + " " + FY + " " + TX + " " + TY);
         int currentPlayer = step.getCurrentPlayer();
         Chess[][] chessBoard = board.getChessBoard();
-        ChessN chessN = board.getChessBoard()[FX][FY].getChessN();
+        ChessN chessN = null;
+        if (board.getChessBoard()[FX][FY] != null)
+            chessN = board.getChessBoard()[FX][FY].getChessN();
+
         // 移动必须在棋盘内
-        if (TX >= 0 && TX <= 9 && TY >= 0 && TY <= 7) return false;
-        // 移动到空位可以
-        if (chessBoard[TX][TY] == null) return true;
+        // if (TX >= 0 && TX <= 9 && TY >= 0 && TY <= 7) return false;
+
         // 除了鼠之外，所有棋子都不能下水
         if (chessN != Mouse)
             if (board.getBoard(TX,TY) == BoardN.River) return false;
         // 鼠在水中无法吃象
         if (chessN == Mouse && board.getBoard(FX,FY) == BoardN.River)
-            if (chessBoard[TX][TY].getChessN() == ChessN.Elephant) return false;
+            if (chessBoard[TX][TY] != null && chessBoard[TX][TY].getChessN() == ChessN.Elephant) return false;
         // 狮子和老虎可以跳湖
         if (chessN == ChessN.Lion || chessN == ChessN.Tiger)
             if (board.getBoard(FX,FY) == BoardN.Road){
@@ -86,10 +90,12 @@ public class GameServiceImpl implements GameService{
                 return true;
             }
         // 不能吃自己的棋子
-        if (chessBoard[TX][TY].getPlayer() == currentPlayer)
+        if (chessBoard[TX][TY] != null && chessBoard[TX][TY].getPlayer() == currentPlayer)
             return false;
+        // // 移动到空位可以
+        // if (chessBoard[TX][TY] == null && board.getBoard(TX,TY) != BoardN.River) return true;
         // 不能吃比自己大的棋子
-        if (chessBoard[TX][TY].getChessN().compareTo(chessBoard[FX][FY].getChessN()) > 0) {
+        if (chessBoard[TX][TY] != null && chessBoard[TX][TY].getChessN().compareTo(chessBoard[FX][FY].getChessN()) < 0) {
             // 如果是鼠吃象，则可以
             if (chessBoard[TX][TY].getChessN() == ChessN.Elephant && chessBoard[FX][FY].getChessN() == Mouse)
                 return true;
@@ -98,8 +104,10 @@ public class GameServiceImpl implements GameService{
                 return true;
             else
                 return false;
-        } else
+        } else if (Math.abs(TX-FX)+Math.abs(TY-FY) == 1)
             return true;
+        else
+            return false;
     }
 
     @Override
@@ -120,6 +128,8 @@ public class GameServiceImpl implements GameService{
             }
             curBoard[TX][TY] = curBoard[FX][FY];
             curBoard[FX][FY] = null;
+            curBoard[TX][TY].setX(TX);
+            curBoard[TX][TY].setY(TY);
             board.setChessBoard(curBoard);
             game.setBoard(board);
 
